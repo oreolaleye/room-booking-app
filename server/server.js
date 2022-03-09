@@ -17,6 +17,8 @@ app.use("/api", roomsRoute);
 app.use("/user", userRoutes);
 app.use("/api", bookingRoutes);
 
+app.use("uploads", express.static("uploads"));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
