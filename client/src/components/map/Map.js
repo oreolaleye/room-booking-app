@@ -14,7 +14,7 @@ function Map() {
         <div style={{height: '500px', width: '100%'}}>
             <h2 className="center boldText" style={{fontSize: '25px', paddingBottom: '30px'}}>Locate Us</h2>
             <GoogleMapReact
-            bootstrapURLKeys="AIzaSyDnDcQAGFsFLXtE2qrhxDC3s20gAkvhkBk"
+            bootstrapURLKeys=""
                 defaultCenter={mapProps.center}
                 defaultZoom={mapProps.zoom}
             ></GoogleMapReact>
