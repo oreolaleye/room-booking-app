@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API } from "../../../../server/APi";
+import { API } from "../../APi";
 import axios from "axios";
 import NavBar from "../../components/navbar/NavBar";
 import Preloader from "../../components/preloader/Preloader";
