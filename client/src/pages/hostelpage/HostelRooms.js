@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { API } from "../../../../server/APi";
 import axios from "axios";
 import NavBar from "../../components/navbar/NavBar";
 import Preloader from "../../components/preloader/Preloader";
@@ -23,11 +24,7 @@ function HostelRooms() {
   async function getRooms() {
     try {
       setLoading(true);
-      const data = (
-        await axios.get(
-          "https://room-booking-app-by-ore.herokuapp.com/api/rooms"
-        )
-      ).data;
+      const data = (await axios.get(`${API}/api/rooms`)).data;
 
       setRooms(data);
       setDuplicateRooms(data);
