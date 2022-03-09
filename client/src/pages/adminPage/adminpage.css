@@ -1,0 +1,84 @@
+.adminPage {
+  margin: 120px 50px 30px;
+}
+.scroll_div {
+  position: relative;
+  overflow-x: auto;
+}
+.booking_summary {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  margin: 0 auto 30px;
+  width: 1300px;
+}
+.total {
+  background-color: #2e4c6d;
+}
+.active {
+  background-color: #396eb0;
+}
+.cancelled {
+  background-color: #fc997c;
+}
+.elapsed {
+  background-color: #b85252;
+}
+
+.booking_summary_div {
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 20px 25px;
+  margin-top: 30px;
+  height: 150px;
+  width: 275px;
+}
+.booking_summary_img {
+  text-align: right;
+  margin-bottom: -20px;
+}
+.admin_bookings_div {
+  width: 1500px;
+}
+.booking_summary_div h1,
+.booking_summary_div h2 {
+  color: #ffffff;
+}
+
+.admin_bookings_div table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.admin_bookings_div td,
+.admin_bookings_div th {
+  border: 1px solid #c1c1c1;
+  text-align: left;
+  padding: 8px;
+}
+
+.admin_bookings_div tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.add_room_btn_div {
+  text-align: right;
+  padding: 5px 10px;
+}
+@media only screen and (max-width: 800px) {
+  .each_booking {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .adminPage {
+    margin: 120px 20px 30px;
+  }
+  .each_booking {
+    width: 350px;
+  }
+  .admin_bookings_div {
+    position: relative;
+    overflow-x: auto;
+  }
+}
