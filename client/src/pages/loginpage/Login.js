@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Logo from "../../resources/logo-wh.webp";
 import Preloader from "../../components/preloader/Preloader";
 import Notification from "../../components/notification/Notification";
@@ -12,6 +12,7 @@ function Login() {
   const [showNotification, setShowNotification] = useState(false);
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const login = async (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ function Login() {
       const res = await axios.post("/user/login", user);
       setLoading(false);
       localStorage.setItem("userInfo", JSON.stringify(res.data));
-      window.location.href = "/";
+      history.push("/");
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -85,7 +86,7 @@ function Login() {
         </div>
         <div className="form_input_div">
           <p>
-            Don't have an account? <a href="/signup">Sign up now!</a>
+            Don't have an account? <Link href="/signup">Sign up now!</Link>
           </p>
         </div>
       </form>

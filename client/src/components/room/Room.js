@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Info_Icon from "../../resources/info.svg";
 import LargeNotification from "../notification/LargeNotification";
 
@@ -6,6 +7,7 @@ function Room(props) {
   const [showNotification, setShowNotification] = useState(false);
   const [message, setMessage] = useState();
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const history = useHistory();
 
   const showError = () => {
     setMessage({
@@ -26,9 +28,11 @@ function Room(props) {
 
   const bookRoom = () => {
     if (!userInfo) {
-      window.location.href = "/login";
+      history.push("/login");
     } else {
-      window.location.href = `/bookings/${props.room._id}/${props.checkIn}/${props.checkOut}`;
+      history.push(
+        `/bookings/${props.room._id}/${props.checkIn}/${props.checkOut}`
+      );
     }
   };
   return (
