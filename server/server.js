@@ -10,7 +10,7 @@ const bookingRoutes = require("./routes/booking_routes");
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://room-booking-app-by-ore.herokuapp.com",
   })
 );
 app.use("/api", roomsRoute);
