@@ -23,7 +23,7 @@ function HostelRooms() {
   async function getRooms() {
     try {
       setLoading(true);
-      const data = (await axios.get("/api/rooms")).data;
+      const data = (await axios.get("http://localhost:8000/api/rooms")).data;
 
       setRooms(data);
       setDuplicateRooms(data);
