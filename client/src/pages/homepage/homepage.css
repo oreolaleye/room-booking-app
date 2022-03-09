@@ -1,0 +1,65 @@
+.homePage {
+  width: 100%;
+}
+.home_text {
+  z-index: 1000;
+  position: absolute;
+  padding: 10px;
+  bottom: 25%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  animation: titleAnimation 40s linear infinite 0s;
+  animation-iteration-count: infinite;
+}
+.home_text h3,
+.home_text h5 {
+  color: #fff;
+  font-family: "BebasNeueRegular", "Arial Narrow", Arial, sans-serif;
+  padding: 0;
+}
+.home_text h3 {
+  font-size: 240px;
+  line-height: 200px;
+}
+.home_text h5 {
+  margin-top: -100px;
+  font-size: 22px;
+}
+
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.home_btn_div {
+  z-index: 1000;
+  position: absolute;
+  bottom: 15%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+@media only screen and (max-width: 700px) {
+  .home_text h3 {
+    font-size: 120px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .home_text h3 {
+    font-size: 80px;
+  }
+}

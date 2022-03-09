@@ -1,0 +1,21 @@
+.hostelPage {
+  margin: 25px 100px;
+  color: black;
+}
+.date_picker_div {
+  margin-top: 130px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1030px) {
+  .hostelPage {
+    margin: 100px 10px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .hostelPage {
+    margin: 100px 10px;
+  }
+}
