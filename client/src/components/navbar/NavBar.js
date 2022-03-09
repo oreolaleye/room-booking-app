@@ -23,7 +23,7 @@ function NavBar(props) {
 
   const userLogOut = async () => {
     try {
-      await axios.get("http://localhost:8000/user/logout");
+      await axios.get("/user/logout");
       localStorage.clear();
       window.location.href = "/";
       setShowDropDown(false);

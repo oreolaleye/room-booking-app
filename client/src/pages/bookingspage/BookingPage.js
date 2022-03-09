@@ -46,22 +46,20 @@ function BookingPage(props) {
       duration,
     };
 
-    await axios
-      .post("http://localhost:8000/api/book-room", bookingDetails)
-      .then(
-        (res) => {
-          setMessage({ status: "Success", message: res.data.message });
-          setShowNotification(true);
-        },
-        (error) => {
-          console.log(error);
-          setMessage({
-            status: "Error",
-            message: "Oops!! Something went wrong",
-          });
-          setShowNotification(true);
-        }
-      );
+    await axios.post("/api/book-room", bookingDetails).then(
+      (res) => {
+        setMessage({ status: "Success", message: res.data.message });
+        setShowNotification(true);
+      },
+      (error) => {
+        console.log(error);
+        setMessage({
+          status: "Error",
+          message: "Oops!! Something went wrong",
+        });
+        setShowNotification(true);
+      }
+    );
   };
 
   const closeNotification = () => {

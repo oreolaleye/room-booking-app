@@ -50,7 +50,7 @@ export function MyBookings() {
       setLoading(true);
 
       const booking = await (
-        await axios.post("http://localhost:8000/api/getBookingById", {
+        await axios.post("/api/getBookingById", {
           userId: user._id,
         })
       ).data;
@@ -74,7 +74,7 @@ export function MyBookings() {
 
       setLoading(true);
       await axios
-        .post("http://localhost:8000/api/cancelBooking", { bookingId, roomId })
+        .post("/api/cancelBooking", { bookingId, roomId })
         .then((res) => {
           setMessage({ status: "Success", message: res.data.message });
           setShowNotification(true);

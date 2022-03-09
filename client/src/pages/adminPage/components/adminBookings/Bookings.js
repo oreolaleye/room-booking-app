@@ -20,9 +20,7 @@ function Bookings() {
     try {
       setLoading(true);
 
-      const data = await (
-        await axios.get("http://localhost:8000/api/getallbookings")
-      ).data;
+      const data = await (await axios.get("/api/getallbookings")).data;
 
       setBookings(data);
       setLoading(false);
@@ -55,7 +53,7 @@ function Bookings() {
 
       setLoading(true);
       await axios
-        .post("http://localhost:8000/api/cancelBooking", { bookingId, roomId })
+        .post("/api/cancelBooking", { bookingId, roomId })
         .then((res) => {
           setMessage({ status: "Success", message: res.data.message });
           setShowNotification(true);
@@ -72,22 +70,20 @@ function Bookings() {
     setShowNotification(false);
     setMessage({});
 
-    await axios
-      .delete(`http://localhost:8000/api/booking/deleteBooking/${bookingId}`)
-      .then(
-        (response) => {
-          setMessage({ status: "Success", message: response.data.message });
-          setShowNotification(true);
-        },
-        (error) => {
-          setMessage({
-            status: "Error",
-            message: "Oops!! Something went wrong.",
-          });
-          console.log(error);
-          setShowNotification(true);
-        }
-      );
+    await axios.delete(`/api/booking/deleteBooking/${bookingId}`).then(
+      (response) => {
+        setMessage({ status: "Success", message: response.data.message });
+        setShowNotification(true);
+      },
+      (error) => {
+        setMessage({
+          status: "Error",
+          message: "Oops!! Something went wrong.",
+        });
+        console.log(error);
+        setShowNotification(true);
+      }
+    );
   };
 
   const closeNotification = () => {

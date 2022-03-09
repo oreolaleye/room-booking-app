@@ -24,7 +24,7 @@ function Login() {
       setLoading(true);
       setShowNotification(false);
 
-      const res = await axios.post("http://localhost:8000/user/login", user);
+      const res = await axios.post("/user/login", user);
       setLoading(false);
       localStorage.setItem("userInfo", JSON.stringify(res.data));
       window.location.href = "/";

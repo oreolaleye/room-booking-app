@@ -25,9 +25,7 @@ function Rooms() {
     try {
       setLoading(true);
 
-      const data = await (
-        await axios.get("http://localhost:8000/api/getallrooms")
-      ).data;
+      const data = await (await axios.get("/api/getallrooms")).data;
 
       setRooms(data);
 
@@ -87,7 +85,7 @@ function Rooms() {
     setShowNotification(false);
     setMessage({});
 
-    await axios.post("http://localhost:8000/api/room/createRoom", room).then(
+    await axios.post("/api/room/createRoom", room).then(
       (response) => {
         setMessage({ status: "Success", message: response.data.message });
         setShowNotification(true);
@@ -107,25 +105,20 @@ function Rooms() {
     setShowNotification(false);
     setMessage({});
 
-    await axios
-      .put(
-        `http://localhost:8000/api/room/updateRoom/${openUpdateRoom.id}`,
-        room
-      )
-      .then(
-        (response) => {
-          setMessage({ status: "Success", message: response.data.message });
-          setShowNotification(true);
-        },
-        (error) => {
-          setMessage({
-            status: "Error",
-            message: "Validation error: invalid entry",
-          });
-          console.log(error);
-          setShowNotification(true);
-        }
-      );
+    await axios.put(`/api/room/updateRoom/${openUpdateRoom.id}`, room).then(
+      (response) => {
+        setMessage({ status: "Success", message: response.data.message });
+        setShowNotification(true);
+      },
+      (error) => {
+        setMessage({
+          status: "Error",
+          message: "Validation error: invalid entry",
+        });
+        console.log(error);
+        setShowNotification(true);
+      }
+    );
     closeRoomModal();
   };
 
@@ -133,22 +126,20 @@ function Rooms() {
     setShowNotification(false);
     setMessage({});
 
-    await axios
-      .delete(`http://localhost:8000/api/room/deleteRoom/${roomid}`)
-      .then(
-        (response) => {
-          setMessage({ status: "Success", message: response.data.message });
-          setShowNotification(true);
-        },
-        (error) => {
-          setMessage({
-            status: "Error",
-            message: "Something went wrong",
-          });
-          console.log(error);
-          setShowNotification(true);
-        }
-      );
+    await axios.delete(`/api/room/deleteRoom/${roomid}`).then(
+      (response) => {
+        setMessage({ status: "Success", message: response.data.message });
+        setShowNotification(true);
+      },
+      (error) => {
+        setMessage({
+          status: "Error",
+          message: "Something went wrong",
+        });
+        console.log(error);
+        setShowNotification(true);
+      }
+    );
   };
 
   return (

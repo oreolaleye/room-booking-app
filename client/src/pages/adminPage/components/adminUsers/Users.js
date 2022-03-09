@@ -13,9 +13,7 @@ function Users() {
     try {
       setLoading(true);
 
-      const data = await (
-        await axios.get("http://localhost:8000/user/getallusers")
-      ).data;
+      const data = await (await axios.get("/user/getallusers")).data;
 
       setUsers(data);
       setLoading(false);
@@ -33,9 +31,7 @@ function Users() {
       setLoading(true);
 
       const data = await (
-        await axios.delete(
-          `http://localhost:8000/api/users/deleteUser/${userId}`
-        )
+        await axios.delete(`/api/users/deleteUser/${userId}`)
       ).data;
       setMessage({ status: "Success", message: data.message });
       setShowNotification(true);
@@ -52,24 +48,22 @@ function Users() {
     setMessage({});
     setLoading(true);
 
-    await axios
-      .post(`http://localhost:8000/api/users/makeadmin/${userId}`)
-      .then(
-        (response) => {
-          setMessage({ status: "Success", message: response.data.message });
-          setShowNotification(true);
-          setLoading(false);
-        },
-        (error) => {
-          console.log(error);
-          setMessage({
-            status: "Error",
-            message: "Oops!! Something went wrong",
-          });
-          setShowNotification(true);
-          setLoading(false);
-        }
-      );
+    await axios.post(`/api/users/makeadmin/${userId}`).then(
+      (response) => {
+        setMessage({ status: "Success", message: response.data.message });
+        setShowNotification(true);
+        setLoading(false);
+      },
+      (error) => {
+        console.log(error);
+        setMessage({
+          status: "Error",
+          message: "Oops!! Something went wrong",
+        });
+        setShowNotification(true);
+        setLoading(false);
+      }
+    );
   };
   useEffect(() => {
     getAllUsers();

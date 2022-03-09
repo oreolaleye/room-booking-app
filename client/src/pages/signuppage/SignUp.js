@@ -13,7 +13,7 @@ function SignUp() {
     setShowNotification(false);
     setMessage({});
 
-    await axios.post("http://localhost:8000/user/register", user).then(
+    await axios.post("/user/register", user).then(
       (response) => {
         setMessage({ status: "Success", message: response.data.message });
         setShowNotification(true);
