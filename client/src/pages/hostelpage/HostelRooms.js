@@ -23,7 +23,11 @@ function HostelRooms() {
   async function getRooms() {
     try {
       setLoading(true);
-      const data = (await axios.get("http://localhost:8000/api/rooms")).data;
+      const data = (
+        await axios.get(
+          "https://room-booking-app-by-ore.herokuapp.com/api/rooms"
+        )
+      ).data;
 
       setRooms(data);
       setDuplicateRooms(data);
