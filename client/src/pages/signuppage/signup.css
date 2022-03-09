@@ -1,0 +1,55 @@
+.form_div {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.form_header {
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+}
+.form_header h5 {
+  color: #ffffff;
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+form {
+  margin: 50px auto 20px;
+}
+.form_input_div {
+  margin-bottom: 20px;
+}
+.form_input_div input,
+.form_input_div textarea {
+  border: 1px solid #808080;
+  border-radius: 7px;
+  font-size: 20px;
+  width: 80%;
+}
+.form_input_div input {
+  height: 40px;
+}
+.form_input_div textarea {
+  height: 100px;
+}
+.form_input_div a {
+  color: black;
+  text-decoration: underline;
+}
+.show_password {
+  padding-left: 10%;
+  text-align: left;
+}
+.error_msg {
+  color: #ff0000;
+  text-align: left;
+  margin-left: 40px;
+}
+.formWidth-50 {
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .formWidth-50 {
+    width: 75%;
+  }
+}

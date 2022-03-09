@@ -1,0 +1,41 @@
+.profile_page {
+  margin-top: 120px;
+  margin-left: 50px;
+  margin-right: 30px;
+  height: 100vh;
+}
+.profie_details_div {
+  border-bottom: 1px solid #a9a9a9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.bookingDetails {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: auto;
+  height: 500px;
+}
+.bookingDetails_div {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 400px;
+  height: 320px;
+  margin: 20px 10px;
+}
+.booking_tab {
+  display: flex;
+  justify-content: space-between;
+}
+.cancelBooking_div {
+  padding: 5px 10px;
+  text-align: right;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile_page {
+    margin-left: 15px;
+  }
+}
