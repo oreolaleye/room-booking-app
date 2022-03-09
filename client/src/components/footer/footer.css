@@ -1,0 +1,35 @@
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 30px;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+.footer > p {
+  text-align: center;
+}
+.footer a {
+  color: #808080;
+}
+.footer_inner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer div ul li {
+  margin-bottom: 20px;
+}
+.footer div ul li a {
+  color: #ffffff;
+}
+.footer_logo_div h5 {
+  color: #ffffff;
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+@media only screen and (max-width: 400px) {
+  .footer_logo_div {
+    display: none;
+  }
+}

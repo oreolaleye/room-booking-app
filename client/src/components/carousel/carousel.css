@@ -1,0 +1,48 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel,
+.caro_img_div,
+.caro_img {
+  width: 100%;
+  height: 100%;
+}
+.caro_text_div {
+  position: absolute;
+  top: 80%;
+}
+.caro_text_div h1 {
+  font-size: 50px;
+}
+.caro_text_div h1,
+.caro_text_div h5 {
+  color: #ffffff;
+}
+.caro_text_div h5 {
+  margin-top: -15px;
+  font-size: 18px;
+}
+.prev_btn_div,
+.next_btn_div {
+  background-color: #c1c1c1;
+  position: absolute;
+  z-index: 21;
+}
+.prev_btn:hover,
+.next_btn:hover {
+  cursor: pointer;
+}
+.prev_btn_div {
+  left: 20px;
+}
+.next_btn_div {
+  right: 20px;
+}
+.prev_btn {
+  padding: 20px;
+}
+.next_btn {
+  padding: 20px;
+}
