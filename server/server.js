@@ -8,11 +8,11 @@ const userRoutes = require("./routes/user_routes");
 const bookingRoutes = require("./routes/booking_routes");
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//   })
+// );
 app.use("/api", roomsRoute);
 app.use("/user", userRoutes);
 app.use("/api", bookingRoutes);
