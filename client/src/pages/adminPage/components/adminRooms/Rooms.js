@@ -115,7 +115,6 @@ function Rooms() {
           status: "Error",
           message: "Validation error: invalid entry",
         });
-        console.log(error);
         setShowNotification(true);
       }
     );
@@ -136,7 +135,6 @@ function Rooms() {
           status: "Error",
           message: "Something went wrong",
         });
-        console.log(error);
         setShowNotification(true);
       }
     );

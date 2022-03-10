@@ -61,7 +61,12 @@ export function MyBookings() {
       setBookingDetails(booking);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      setMessage({
+        status: "Error",
+        message: "Oops!!! Something went wrong",
+      });
+      setShowNotification(true);
+      setLoading(false);
     }
   };
 

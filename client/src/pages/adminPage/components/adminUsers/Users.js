@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LargeNotification from "../../../../components/notification/LargeNotification";
 import Preloader from "../../../../components/preloader/Preloader";
+import { useHistory } from "react-router-dom";
 
 function Users() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [message, setMessage] = useState();
+  const history = useHistory();
 
   const getAllUsers = async () => {
     try {
@@ -55,7 +57,6 @@ function Users() {
         setLoading(false);
       },
       (error) => {
-        console.log(error);
         setMessage({
           status: "Error",
           message: "Oops!! Something went wrong",
@@ -71,7 +72,7 @@ function Users() {
 
   const closeNotification = () => {
     setShowNotification(false);
-    window.location.reload();
+    history.go(0);
   };
 
   return (

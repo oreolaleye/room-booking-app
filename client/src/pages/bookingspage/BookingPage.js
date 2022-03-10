@@ -27,7 +27,11 @@ function BookingPage(props) {
         setTotalAmount(res.rentperday * duration);
       });
     } catch (error) {
-      console.log(error);
+      setMessage({
+        status: "Error",
+        message: "Oops!! Something went wrong",
+      });
+      setShowNotification(true);
     }
   };
 
@@ -54,7 +58,6 @@ function BookingPage(props) {
         setShowNotification(true);
       },
       (error) => {
-        console.log(error);
         setMessage({
           status: "Error",
           message: "Oops!! Something went wrong",

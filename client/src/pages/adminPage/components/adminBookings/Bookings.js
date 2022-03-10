@@ -82,7 +82,6 @@ function Bookings() {
           status: "Error",
           message: "Oops!! Something went wrong.",
         });
-        console.log(error);
         setShowNotification(true);
       }
     );

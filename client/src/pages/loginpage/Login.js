@@ -30,7 +30,11 @@ function Login() {
       localStorage.setItem("userInfo", JSON.stringify(res.data));
       history.push("/");
     } catch (error) {
-      console.log(error);
+      setMessage({
+        status: "Error",
+        message: "Incorrect email or password",
+      });
+      setShowNotification(true);
       setLoading(false);
     }
   };

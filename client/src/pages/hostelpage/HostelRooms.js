@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../../components/navbar/NavBar";
 import Preloader from "../../components/preloader/Preloader";
@@ -9,17 +9,21 @@ import moment from "moment";
 import Room from "../../components/room/Room";
 import Footer from "../../components/footer/Footer";
 import DateRangePicker from "../../components/datePicker/DateRangePicker";
+import LargeNotification from "../../components/notification/LargeNotification";
 
 function HostelRooms() {
   const [rooms, setRooms] = useState([]);
   const [duplicateRooms, setDuplicateRooms] = useState([]);
   const [roomie, setRoomie] = useState();
   const [loading, setLoading] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [message, setMessage] = useState();
   const [showModal, setShowModal] = useState(false);
   const [checkinDate, setCheckinDate] = useState();
   const [checkoutDate, setCheckoutDate] = useState();
   const [searchkey, setSearchKey] = useState("");
   const [type, setType] = useState("all");
+  const history = useHistory();
 
   async function getRooms() {
     try {
@@ -30,7 +34,11 @@ function HostelRooms() {
       setDuplicateRooms(data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      setMessage({
+        status: "Error",
+        message: "Oops!! Something went wrong",
+      });
+      setShowNotification(true);
       setLoading(false);
     }
   }
@@ -102,11 +110,19 @@ function HostelRooms() {
     }
   };
 
+  const closeNotification = () => {
+    setShowNotification(false);
+    history.push("/hostel-rooms");
+  };
+
   useEffect(() => {
     getRooms();
   }, []);
   return (
     <div>
+      {showNotification ? (
+        <LargeNotification message={message} close={closeNotification} />
+      ) : null}
       {showModal ? <Modal room={roomie} close={closeModal} /> : null}
       <NavBar border />
       <DateRangePicker
