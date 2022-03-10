@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Tabs } from "antd";
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
@@ -8,9 +9,11 @@ import Bookings from "./components/adminBookings/Bookings";
 const { TabPane } = Tabs;
 
 function AdminPage() {
+  const history = useHistory();
+
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem("userInfo")).isAdmin) {
-      window.location.href = "/";
+      history.push("/");
     }
   });
 

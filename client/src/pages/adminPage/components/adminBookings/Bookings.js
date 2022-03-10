@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import LargeNotification from "../../../../components/notification/LargeNotification";
 import Preloader from "../../../../components/preloader/Preloader";
@@ -15,6 +16,7 @@ function Bookings() {
   const [showActiveBookings, setShowActiveBookings] = useState(false);
   const [showCancelledBookings, setShowCancelledBookings] = useState(false);
   const [showPrevBookings, setShowPrevBookings] = useState(false);
+  const history = useHistory();
 
   const getAllBookings = async () => {
     try {
@@ -88,7 +90,7 @@ function Bookings() {
 
   const closeNotification = () => {
     setShowNotification(false);
-    window.location.reload();
+    history.go(0);
   };
 
   const handleShowAllBookings = () => {

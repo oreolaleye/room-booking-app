@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Tag } from "antd";
 import NavBar from "../../components/navbar/NavBar";
@@ -7,11 +8,12 @@ import LargeNotification from "../../components/notification/LargeNotification";
 import Footer from "../../components/footer/Footer";
 
 function ProfilePage() {
+  const history = useHistory();
   const user = JSON.parse(localStorage.getItem("userInfo"));
 
   useEffect(() => {
     if (!user) {
-      window.location.href = "/login";
+      history.push("/login");
     }
   });
 
@@ -44,6 +46,7 @@ export function MyBookings() {
   const [showCurrent, setShowCurrent] = useState(true);
   const [showCancelled, setShowCancelled] = useState(false);
   const user = JSON.parse(localStorage.getItem("userInfo"));
+  const history = useHistory();
 
   const getBookings = async () => {
     try {
@@ -88,7 +91,7 @@ export function MyBookings() {
   };
   const closeNotification = () => {
     setShowNotification(false);
-    window.location.reload();
+    history.go(0);
   };
 
   const handleShowCurrent = () => {

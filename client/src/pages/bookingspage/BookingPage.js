@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../../components/navbar/NavBar";
 import Preloader from "../../components/preloader/Preloader";
@@ -14,6 +15,7 @@ function BookingPage(props) {
   const checkInDate = moment(props.match.params.checkIn, "DD-MM-YYYY");
   const checkOutDate = moment(props.match.params.checkOut, "DD-MM-YYYY");
   const duration = moment.duration(checkOutDate.diff(checkInDate)).asDays();
+  const history = useHistory();
 
   const getRoomDetails = async () => {
     try {
@@ -64,7 +66,7 @@ function BookingPage(props) {
 
   const closeNotification = () => {
     setShowNotification(false);
-    window.location.href = "/hostel-rooms";
+    history.push("/hostel-rooms");
   };
   return (
     <div className="booking_page">
